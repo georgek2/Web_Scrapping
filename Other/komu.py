@@ -17,4 +17,4 @@ the_container = the_tin[0]
 
 the_src = the_container.a.img['src']
 
-print(the_tin)
+print(the_container.a)
