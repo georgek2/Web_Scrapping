@@ -7,3 +7,7 @@ Scrapping content from web pages using different packages.
 
  > Other: Other websites
 	+ Newegg.com 
+
+ > Weather_APis
+	+ National Weather: quest.py
+	  Scrapped some weather info
