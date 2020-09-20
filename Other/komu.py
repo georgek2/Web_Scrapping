@@ -6,15 +6,21 @@ url = 'https://www.newegg.com/Video-Cards-Video-Devices/Category/ID-38?Tpk=graph
 the_page = urlopen(url)
 the_html = the_page.read()
 
-the_page.close() # Closing connection: You have to
+# Closing connection after reading the page
+the_page.close() 
 
 # Parsing the HTML
-page_soup = soup(the_html, "html.parser")
+page_html = soup(the_html, "html.parser")
 
-the_tin = page_soup.findAll('div', {'class':'item-cell'})
+item_cells = page_html.findAll('div', {'class':'item-cell'})
 
-the_container = the_tin[0]
+# The first item cell
+the_container = item_cells[0]
 
+# Printing the a tag 
+print(the_container.a)
+
+# The image source
 the_src = the_container.a.img['src']
 
-print(the_container.a)
+print(the_src)

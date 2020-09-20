@@ -10,7 +10,7 @@ page = requests.get(URL, headers=headers)
 
 soup = BeautifulSoup(page.content, 'html.parser')
 
-para = soup.find_all('h1')
+para = soup.find_all('h3')
 
-print(para.text)
+print(para)
 print('Hello World')

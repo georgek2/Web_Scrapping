@@ -19,26 +19,32 @@ card_containers = page_soup.findAll("div", {"class":"item-container"})
 # print(card_containers)
 
 # First Card
-card_one = card_containers[0].a
+card_one = card_containers[0]
+
+# The first image
 card_one_img = card_containers[0].a.img
 
-# print(card_one_src)
+# The image src
 image_src = card_one.img['src']
 
-print(card_one_img)
+# print(image_src)
 
-# Throwing the results into a CSV file
-
+# Create a CSV file to store the data we collect
 filename = "products.csv"
+
+# Open it for writing
 f = open(filename, 'w')
 
+# Column names
 headers = "Brand, Product_name, Shipping\n" # New Lines for csv.
 
 f.write(headers) # The first line to write are the headers..
 
+# Looping through the divs with the cards
+
 for container in card_containers:
 
-    image = container.div.img
+    # image = container.div.img
     brand = container.div.a.img['title']
     
     title_container = container.findAll('a', {'class':'item-title'})
