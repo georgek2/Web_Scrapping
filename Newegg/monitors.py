@@ -27,7 +27,7 @@ desc = m_one.img['title']
 
 price = m_one.find(class_='price-current').strong.get_text()
 
-print(m_one)
+# print(m_one)
 
 f.write(headers)
 for container in item_containers:
@@ -40,6 +40,6 @@ for container in item_containers:
     print('DEscription : ', desc)
     print('Price: ', price)
 
-    f.write(brand + ',' + desc.replace(',', '|') + ',' + ',' + price + ',' + src + '\n')
+    # f.write(brand + ',' + desc.replace(',', '|') + ',' + ',' + price + ',' + src + '\n')
 
 f.close()

@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup as soup 
 import pandas as pd 
 
-resp = requests.get('https://forecast.weather.gov/MapClick.php?lat=40.71455000000003&lon=-74.00713999999994#.X4QHXtAza00')
+resp = requests.get('https://forecast.weather.gov/MapClick.php?lat=41.8843&lon=-87.6324')
 
 page = soup(resp.content, 'html.parser')
 
