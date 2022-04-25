@@ -1,6 +1,8 @@
-from matplotlib.pyplot import cla
+
 import requests
 from bs4 import BeautifulSoup as soup
+
+import pandas as pd
 
 url = 'https://www.newegg.com/p/pl?d=recording+microphones'
 
@@ -18,14 +20,28 @@ items = soup_data.find(class_='item-cells-wrap')
 print('Item-cells: ', len(items))
 
 # Get all the microphones
-mics = items.find(class_='item-container')
+mics = items.find_all(class_='item-container')
 # print(mics.prettify())
-descriptions = mics.find_all(class_='item-branding')
-print(len(descriptions))
-mic_prices = mics.find_all('item-action')
-print(len(mic_prices))
+
+descriptions = []
+prices = []
+
+for mic in mics:    
+    description = mic.find(class_='item-info')
+    desc = description.find(class_='item-title').get_text()
+    descriptions.append(desc)
+
+    mic_price = mic.find(class_='item-action')
+    price = mic_price.find(class_='price-current').strong.get_text()
+    prices.append(price)
 
 
+data = pd.DataFrame({
+    'Description' : descriptions,
+    'Price' : prices
+})
+
+print(data)
 
 
 
